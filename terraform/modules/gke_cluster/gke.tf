@@ -31,7 +31,7 @@ module "gke" {
   node_pools = [
     {
       name            = "default-node-pool"
-      machine_type    = "e2-standard-4"
+      machine_type    = "e2-standard-8"
       node_locations  = var.zone
       min_count       = 1
       max_count       = 2
