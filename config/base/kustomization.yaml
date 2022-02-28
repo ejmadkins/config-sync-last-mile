@@ -1,6 +1,5 @@
 resources:
-- namespace.yaml
-- rolebinding.yaml
-- role.yaml
-- networkpolicy.yaml
-
+  - namespace.yaml
+  - rolebinding.yaml
+  - role.yaml
+  - reposync.yaml
