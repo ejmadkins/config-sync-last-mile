@@ -7,5 +7,5 @@ spec:
   sourceFormat: unstructured
   git:
     repo: https://github.com/repo.git
-    branch: branch
+    branch: dev
     auth: none

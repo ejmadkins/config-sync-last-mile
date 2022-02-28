@@ -1,7 +1,6 @@
 variable "project" {
   type        = string
   description = "the GCP project where the cluster will be created"
-  default     = "ejmadkins-krm-0929"
 }
 
 variable "gke_name" {
@@ -13,13 +12,13 @@ variable "gke_name" {
 variable "zone" {
   type        = string
   description = "the zone for the East GKE cluster."
-  default     = "europe-west1-b"
+  default     = "europe-west2-a"
 }
 
 variable "region" {
   type        = string
   description = "the region for the East GKE cluster."
-  default     = "europe-west1"
+  default     = "europe-west2"
 }
 
 variable "sync_repo" {
