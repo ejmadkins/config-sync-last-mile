@@ -1,0 +1,8 @@
+Flask
+google-api-core
+google-auth
+google-cloud-vision
+google-cloud-storage
+Jinja2
+proto-plus
+protobuf

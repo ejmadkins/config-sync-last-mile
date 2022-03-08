@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Container Day Image Serve</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style type="text/css">
+      html {
+        scroll-behavior: smooth;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        min-width: 300px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        --font-family: "Open Sans", "Rubik";
+      }
+
+      :root {
+        --light: #c5c3c6;
+        --mid: #4c5c68;
+        --dark: #46494c;
+        --emphasis: #1985a1;
+      }
+
+      html[data-theme="light"] {
+        --light: #fff;
+        --mid: #4361ee;
+        --dark: #3a0ca3;
+        --emphasis: #f72585;
+      }
+
+      html[data-theme="dark"] {
+        --light: #c5c3c6;
+        --mid: #4c5c68;
+        --dark: #46494c;
+        --emphasis: #1985a1;
+      }
+
+      html,
+      body,
+      p,
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Set some defaults */
+      html {
+        box-sizing: border-box;
+        display: block;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.45;
+        font-family: var(--font-family);
+        background-color: var(--dark);
+      }
+
+      /* Apply width and height values apply to the content, padding and border */
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+
+      /* Set h1 font sizing */
+      h1 {
+        color: var(--emphasis);
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 2rem;
+        line-height: 3.5rem;
+        padding: 2% 0;
+      }
+
+      h3 {
+        color: var(--emphasis);
+        font-weight: bold;
+        font-weight: 2rem;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+      }
+
+      .image-container {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 0 8rem;
+        position: relative;
+        margin: 0 auto;
+        width: 90vw;
+        padding: 5% 0;
+      }
+
+      .pic img {
+        border-radius: 20px;
+        width: 100%;
+        max-height: 50vh;
+        display: block;
+      }
+
+      .content ul {
+        font-size: 1rem;
+        color: var(--light);
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="intro">
+      <h1>Welcome to Container Day!</h1>
+      <div class="image-container">
+        <div class="pic">
+          <img src="{{uri_name}}" />
+        </div>
+        <div class="content">
+          <h3>Metadata enrichment from the Cloud Vision API.</h3>
+          <ul>
+            {% for label in labels %}
+            <li><b>{{label.description}}</b> <i>score: {{label.score}}</i></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

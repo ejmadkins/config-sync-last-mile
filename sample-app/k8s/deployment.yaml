@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: image-serve
+  namespace: tenant-a
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: image-serve
+  template:
+    metadata:
+      labels:
+        app: image-serve
+    spec:
+      serviceAccountName: ksa-image
+      containers:
+        - image: europe-west2-docker.pkg.dev/ejmadkins-container-day-2044/image-serve/container-day-image
+          name: image-serve
+          ports:
+            - containerPort: 8080
+          securityContext:
+            runAsUser: 2000
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - NET_RAW
+          env:
+            - name: bucket
+              valueFrom:
+                configMapKeyRef:
+                  name: gcs-object
+                  key: bucket
+            - name: blob
+              valueFrom:
+                configMapKeyRef:
+                  name: gcs-object
+                  key: blob
+          resources:
+            limits:
+              cpu: "200m"
+              memory: "1Gi"
