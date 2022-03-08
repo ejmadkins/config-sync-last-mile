@@ -1,3 +1,4 @@
 resources:
   - tenants/tenant-a
   - base/kcc
+  - base/policies
