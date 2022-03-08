@@ -14,7 +14,10 @@ module "enabled_google_apis" {
     "anthosconfigmanagement.googleapis.com",
     "cloudresourcemanager.googleapis.com",
     "anthos.googleapis.com",
-    "sqladmin.googleapis.com"
+    "sqladmin.googleapis.com",
+    "vision.googleapis.com",
+    "storage.googleapis.com",
+    "artifactregistry.googleapis.com"
   ]
 }
 
