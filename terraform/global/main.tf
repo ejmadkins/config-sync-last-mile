@@ -91,3 +91,9 @@ resource "google_gke_hub_feature" "feature" {
   provider = google-beta
   depends_on = [time_sleep.wait_30_seconds]
 }
+
+resource "google_artifact_registry_repository" "image-serve" {
+  location = "europe-west2"
+  repository_id = "image-serve"
+  format = "DOCKER"
+}
