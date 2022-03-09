@@ -24,11 +24,6 @@ update_reposync () {
   sed -i "s/TENANT-REPO/${reposync_repo}/g" config/tenants/tenant-a/configconnector.yaml
 }
 
-git_push () {
-  git commit -am "update project specific items"
-  git push
-}
-
 # enable ACM as a hub feature
 enable_acm () {
   terraform -chdir=terraform/global init
