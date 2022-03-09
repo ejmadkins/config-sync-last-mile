@@ -15,7 +15,7 @@ spec:
     spec:
       serviceAccountName: ksa-image
       containers:
-        - image: europe-west2-docker.pkg.dev/ejmadkins-container-day-2044/image-serve/container-day-image
+        - image: europe-west2-docker.pkg.dev/PROJECT-INSERT/image-serve/container-day-image
           name: image-serve
           ports:
             - containerPort: 8080

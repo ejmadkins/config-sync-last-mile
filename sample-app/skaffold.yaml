@@ -4,14 +4,14 @@ metadata:
   name: image-serve
 build:
   artifacts:
-    - image: europe-west2-docker.pkg.dev/ejmadkins-container-day-2044/image-serve/container-day-image
+    - image: europe-west2-docker.pkg.dev/PROJECT-INSERT/image-serve/container-day-image
       buildpacks:
         builder: "gcr.io/buildpacks/builder:v1"
   tagPolicy:
     gitCommit:
       variant: AbbrevCommitSha
   googleCloudBuild:
-    projectId: ejmadkins-container-day-2044
+    projectId: PROJECT-INSERT
 deploy:
   kubectl:
     manifests:
