@@ -53,3 +53,17 @@ module "wi" {
   project_id          = var.project
   roles               = ["roles/cloudsql.admin", "roles/pubsub.admin", "roles/storage.admin"]
 }
+
+module "image-serve-wi" {
+  source              = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
+  version             = "~> 16.0.1"
+  gcp_sa_name         = "image-serve-${module.gke.name}"
+  cluster_name        = module.gke.name
+  name                = "ksa-image"
+  location            = var.zone
+  use_existing_k8s_sa = true
+  annotate_k8s_sa     = false
+  namespace           = "tenant-a"
+  project_id          = var.project
+  roles               = ["roles/storage.admin"]
+}
