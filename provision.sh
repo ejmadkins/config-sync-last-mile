@@ -15,6 +15,7 @@ get_inputs () {
 # update project
 update_project () {
   sed -i "s/PROJECT-INSERT/${project}/g" config/base/kcc/configconnector.yaml
+  sed -i "s/PROJECT-INSERT/${project}/g" sample-app/k8s/serviceaccount.yaml
   sed -i "s/PROJECT-INSERT/${project}/g" sample-app/k8s/deployment.yaml
   sed -i "s/PROJECT-INSERT/${project}/g" sample-app/skaffold.yaml
 }
