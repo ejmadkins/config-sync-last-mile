@@ -17,7 +17,6 @@
 variable "project" {
   type        = string
   description = "the GCP project where the cluster will be created"
-  default     = "ejmadkins-krm-0929"
 }
 
 variable "region" {
