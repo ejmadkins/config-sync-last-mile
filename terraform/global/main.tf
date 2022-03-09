@@ -93,6 +93,7 @@ resource "google_gke_hub_feature" "feature" {
 }
 
 resource "google_artifact_registry_repository" "image-serve" {
+  provider = google-beta
   location = "europe-west2"
   repository_id = "image-serve"
   format = "DOCKER"
