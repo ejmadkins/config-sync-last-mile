@@ -50,5 +50,5 @@ module "wi" {
   annotate_k8s_sa     = false
   namespace           = "cnrm-system"
   project_id          = var.project
-  roles               = ["roles/cloudsql.admin", "roles/pubsub.admin"]
+  roles               = ["roles/cloudsql.admin", "roles/pubsub.admin", "roles/storage.admin"]
 }
