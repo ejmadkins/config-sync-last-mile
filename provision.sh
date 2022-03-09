@@ -10,6 +10,13 @@ get_inputs () {
   read git_repo
 }
 
+# update project
+update_project () {
+  sed -i "s/PROJECT-INSERT/${project}/g" base/kcc/configconnector.yaml
+  sed -i "s/PROJECT-INSERT/${project}/g" sample-app/k8s/deployment.yaml
+  sed -i "s/PROJECT-INSERT/${project}/g" sample-app/skaffold.yaml
+}
+
 # enable ACM as a hub feature
 enable_acm () {
   terraform -chdir=terraform/global init
@@ -19,6 +26,7 @@ enable_acm () {
 # provision clusters
 create_cluster () {
   get_inputs
+  update_project
   enable_acm
   terraform -chdir=terraform/clusters init
   terraform -chdir=terraform/clusters apply -var "project=${project}" -var "sync_repo=${git_repo}" -auto-approve
