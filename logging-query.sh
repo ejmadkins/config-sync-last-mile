@@ -1,0 +1,1 @@
+resource.type="k8s_container" resource.labels.cluster_name="cluster-krm-demo" resource.labels.namespace_name="config-management-system" resource.labels.container_name="reconciler" "[1] KNV2009: failed to apply"
