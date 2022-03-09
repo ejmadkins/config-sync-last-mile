@@ -14,3 +14,11 @@ module "gke_east" {
   }
   datapath_provider = var.enable_dataplane_v2 ? "ADVANCED_DATAPATH" : "DATAPATH_PROVIDER_UNSPECIFIED"
 }
+
+module "image-serve-workload-identity" {
+  source     = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
+  name       = "image-serve"
+  namespace  = "tenant-a"
+  project_id = var.project
+  roles      = ["roles/storage.admin"]
+}
