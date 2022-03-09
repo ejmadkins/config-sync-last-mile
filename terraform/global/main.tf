@@ -17,7 +17,8 @@ module "enabled_google_apis" {
     "sqladmin.googleapis.com",
     "vision.googleapis.com",
     "storage.googleapis.com",
-    "artifactregistry.googleapis.com"
+    "artifactregistry.googleapis.com",
+    "cloudbuild.googleapis.com"
   ]
 }
 
