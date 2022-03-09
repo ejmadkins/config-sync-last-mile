@@ -38,7 +38,7 @@ create_cluster () {
   enable_acm
   terraform -chdir=terraform/clusters init
   terraform -chdir=terraform/clusters apply -var "project=${project}" -var "sync_repo=${rootsync_repo}" -auto-approve
-  gcloud container clusters get-credentials ${cluster} --region europe-west2 --project ${project}
+  gcloud container clusters get-credentials cluster-krm-demo --region europe-west2 --project ${project}
 }
 
 # delete clusters
