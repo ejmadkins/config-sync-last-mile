@@ -27,6 +27,7 @@ module "gke" {
   ip_range_services  = ""
   config_connector   = true
   remove_default_node_pool = true
+  network_policy     = true
 
   node_pools = [
     {
