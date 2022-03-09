@@ -27,4 +27,4 @@ patches:
     patch: |-
       - op: replace
         path: /spec/git/repo
-        value: https://github.com/ejmadkins/acm-multi-repo-tenant-a.git
+        value: TENANT-REPO

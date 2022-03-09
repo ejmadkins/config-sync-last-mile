@@ -6,15 +6,27 @@ set -o errexit -o nounset -o pipefail
 get_inputs () {
   echo Enter Project ID:
   read project
-  echo Enter Git Repo URL:
-  read git_repo
+  echo Enter RootSync Git Repo URL:
+  read rootsync_repo
+  echo Enter RepoSync Git Repo URL:
+  read reposync_repo
 }
 
 # update project
 update_project () {
-  sed -i "s/PROJECT-INSERT/${project}/g" base/kcc/configconnector.yaml
+  sed -i "s/PROJECT-INSERT/${project}/g" config/base/kcc/configconnector.yaml
   sed -i "s/PROJECT-INSERT/${project}/g" sample-app/k8s/deployment.yaml
   sed -i "s/PROJECT-INSERT/${project}/g" sample-app/skaffold.yaml
+}
+
+# update project
+update_reposync () {
+  sed -i "s/TENANT-REPO/${reposync_repo}/g" config/tenants/tenant-a/configconnector.yaml
+}
+
+git_push () {
+  git commit -am "update project specific items"
+  git push
 }
 
 # enable ACM as a hub feature
@@ -29,7 +41,7 @@ create_cluster () {
   update_project
   enable_acm
   terraform -chdir=terraform/clusters init
-  terraform -chdir=terraform/clusters apply -var "project=${project}" -var "sync_repo=${git_repo}" -auto-approve
+  terraform -chdir=terraform/clusters apply -var "project=${project}" -var "sync_repo=${rootsync_repo}" -auto-approve
   gcloud container clusters get-credentials ${cluster} --region europe-west2 --project ${project}
 }
 
@@ -37,7 +49,7 @@ create_cluster () {
 destroy_cluster () {
   get_inputs
   terraform -chdir=terraform/clusters init
-  terraform -chdir=terraform/clusters destroy  -var "project=${project}" -var "sync_repo=${git_repo}" -auto-approve
+  terraform -chdir=terraform/clusters destroy  -var "project=${project}" -var "sync_repo=${rootsync_repo}" -auto-approve
 }
 
 while getopts cdh flag
