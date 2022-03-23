@@ -3,5 +3,5 @@ kind: ConfigConnector
 metadata:
   name: configconnector.core.cnrm.cloud.google.com
 spec:
-  googleServiceAccount: cnrmsa-cluster-krm-demo@ejmadkins-container-day-2306.iam.gserviceaccount.com
+  googleServiceAccount: cnrmsa-cluster-krm-demo@ejmadkins-cday-krm-github.iam.gserviceaccount.com
   mode: cluster
