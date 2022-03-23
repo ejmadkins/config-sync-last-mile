@@ -20,7 +20,7 @@ patches:
         value: tenant-a
       - op: replace
         path: /metadata/annotations/cnrm.cloud.google.com~1project-id
-        value: ejmadkins-container-day-2306
+        value: ejmadkins-cday-krm-github
   - target:
       kind: RepoSync
       name: repo-sync
