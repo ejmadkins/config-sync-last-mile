@@ -43,5 +43,5 @@ patches:
         path: /spec/resourceRef/namespace
         value: tenant-a
       - op: replace
-        path: /spec/bindings/0/members/-
+        path: /spec/bindings/0/members/0
         value: serviceAccount:ejmadkins-cday-krm-github.svc.id.goog[tenant-a/ksa]
