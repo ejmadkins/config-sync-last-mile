@@ -28,3 +28,17 @@ patches:
       - op: replace
         path: /spec/git/repo
         value: https://github.com/edadkins-google/acm-multi-repo-tenant-a.git
+   - target:
+        kind: ServiceAccount
+        name: ksa
+      patch: |-
+        - op: replace
+          path: /metadata/annotations/iam.gke.io~1gcp-service-account
+          value: tenant-a@ejmadkins-cday-krm-github.iam.gserviceaccount.com
+   - target:
+        kind: ServiceAccount
+        name: ksa
+      patch: |-
+        - op: replace
+          path: /spec/bindings/members/serviceAccount
+          value: [ejmadkins-cday-krm-github].svc.id.goog[tenant-a/ksa]
