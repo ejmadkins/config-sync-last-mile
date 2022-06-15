@@ -1,0 +1,14 @@
+apiVersion: iam.cnrm.cloud.google.com/v1alpha1
+kind: IAMPolicy
+metadata:
+  name: gsa-wi
+spec:
+  resourceRef:
+    apiVersion: iam.cnrm.cloud.google.com/v1alpha1
+    kind: IAMServiceAccount
+    name: ksa
+    namespace: default
+  bindings:
+    - role: roles/iam.workloadIdentityUser
+      members:
+        - serviceAccount:default
