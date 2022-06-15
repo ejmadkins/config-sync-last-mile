@@ -36,9 +36,12 @@ patches:
           path: /metadata/annotations/iam.gke.io~1gcp-service-account
           value: tenant-a@ejmadkins-cday-krm-github.iam.gserviceaccount.com
    - target:
-        kind: ServiceAccount
-        name: ksa
+        kind: IAMPolicy
+        name: gsa-wi
       patch: |-
+        - op: replace
+          path: /spec/resourceRef/namespace
+          value: tenant-a
         - op: replace
           path: /spec/bindings/members/serviceAccount
           value: [ejmadkins-cday-krm-github].svc.id.goog[tenant-a/ksa]
