@@ -4,5 +4,5 @@ resources:
   - role.yaml
   - reposync.yaml
   - networkpolicy.yaml
-  - gsa-wi.yaml
-  - ksa.yaml
+  #- gsa-wi.yaml
+  #- ksa.yaml
