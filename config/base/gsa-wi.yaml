@@ -5,8 +5,7 @@ metadata:
 spec:
   resourceRef:
     kind: IAMServiceAccount
-    name: ksa
-    namespace: default
+    name: default
   bindings:
     - role: roles/iam.workloadIdentityUser
       members:
