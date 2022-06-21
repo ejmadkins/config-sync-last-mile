@@ -5,6 +5,7 @@ metadata:
 spec:
   resourceRef:
     kind: IAMServiceAccount
+    apiVersion: iam.cnrm.cloud.google.com/v1beta1
     name: default
   bindings:
     - role: roles/iam.workloadIdentityUser
