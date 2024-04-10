@@ -2,6 +2,8 @@ apiVersion: core.cnrm.cloud.google.com/v1beta1
 kind: ConfigConnector
 metadata:
   name: configconnector.core.cnrm.cloud.google.com
+  annotations:
+    configsync.gke.io/cluster-name-selector: preprod-standard
 spec:
   googleServiceAccount: cnrmsa-cluster-krm-demo@ejmadkins-cday-krm-github.iam.gserviceaccount.com
   mode: cluster
