@@ -9,3 +9,4 @@ spec:
     repo: https://github.com/repo.git
     branch: dev
     auth: none
+    dir: config-management
